@@ -1,0 +1,33 @@
+nombre: ci
+en:
+  empujar:
+    sucursales:
+      - maestro
+      - principal
+permisos:
+  Contenido: escribir
+trabajos:
+  desplegar:
+    se ejecuta en: ubuntu-latest
+    pasos:
+      - usos: acciones/checkout@v4
+      - nombre: Configurar credenciales de Git
+        correr: |
+          configuración git nombre_usuario github-actions[bot]
+          git config usuario.correo electrónico 41898282+github-actions[bot]@users.noreply.github.com
+      - usos: acciones/setup-python@v5
+        con:
+          versión de Python: 3.x
+      - ejecutar: echo "cache_id=$(fecha --utc '+%V')" >> $GITHUB_ENV
+      - usos: acciones/cache@v4
+        con:
+          clave: ${{ github.ref }}
+          ruta: .cache
+          restaurar-claves: |
+            material-mkdocs-
+      - ejecutar: pip instalar jupyter
+      - ejecutar: pip install mkdocstrings[python]
+      - ejecutar: pip install mkdocs-material
+      - ejecutar: instalación de pip --actualizar pip
+      - ejecutar: mkdocs gh-deploy --force
+      
