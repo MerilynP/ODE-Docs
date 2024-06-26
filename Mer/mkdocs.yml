@@ -1,0 +1,4 @@
+site_name: Documentación de Métodos Numéricos para ODE
+nav:
+  - Introducción: index.md
+  - Referencia de Funciones: reference.md
