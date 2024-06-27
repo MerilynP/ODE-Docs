@@ -1,12 +1,24 @@
-site_name: Documentación de Métodos Numéricos para ODE
-nav:
-  - Introducción: index.md
-  - Referencia de Funciones: reference.md
+site_name: "Tarea #4: de documentacion de ODE"  # Cambia el nombre del sitio según prefieras
+
+theme:
+  name: "material"  # Tema Material for MkDocs
+  palette:
+    primary: "green"  # Cambia el color primario del tema (puedes usar nombres de colores estándar o códigos hexadecimales)
+    accent: "light green"  # Cambia el color de acento del tema
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true  # Configuración para renderizar fórmulas matemáticas
+
+extra_javascript:
+  - javascript/mathjax.js  # Archivo de JavaScript personalizado
+  - https://polyfill.io/v3/polyfill.min.js?features=es6  # Polyfill para navegadores antiguos
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js  # Biblioteca MathJax para fórmulas matemáticas
 
 plugins:
-  - mkdocstrings:
-      default_handler: python
-      handlers:
-        python:
-          paths: [ode]
-          site_dir: docs  
+  - mkdocstrings  # Plugin para integrar la documentación generada automáticamente
+
+nav:
+  - ODE: index.md  # Enlaces en la barra de navegación principal
+  - Reference: reference.md
+
