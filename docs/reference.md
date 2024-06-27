@@ -1,15 +1,7 @@
 # Documentación de Funciones
 
-Función Euler
+Aquí se encuentra la documentación de referencia de las funciones implementadas en el módulo ode.
 
-::: ode.euler
+## Funciones
 
-
-método de Runge-kutta de segundo orden
-
-::: ode.rk2
-
-
-método de Runge-kutta de cuarto orden
-
-::: ode.rk4
+::: ode.ode
